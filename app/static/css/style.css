@@ -19,17 +19,18 @@ body {
     background-color: #11998e;
     color: #fff;
     text-align: center;
+    display: flex; /* Add this to vertically center the text */
+    align-items: center; /* Add this to vertically center the text */
+    justify-content: space-between; /* Add this to put space between the h1 and navbar */
 }
 
 #header h1 {
-    font-size: 1.5rem; /* Adjust this value to make the text bigger or smaller */
-    margin-left: 20px; /* Adjust this value to increase or decrease the left margin */
-    float: left;
-    line-height: 70px; /* Aligns the text vertically */
+    font-size: 2rem; /* Increase the font size */
+    margin-left: 20px;
+    text-align: left; /* Align the text to the left */
 }
 
 #navbar {
-    float: right;
     margin-right: 20px; /* Adjust this value to increase or decrease the right margin */
 }
 
@@ -51,6 +52,7 @@ body {
     text-align: center;
     padding: 0 16px;
     text-decoration: none;
+    font-size: 0.8rem; /* Decrease the font size */
 }
 
 #navbar ul li a:hover {
@@ -69,6 +71,9 @@ body {
     padding: 15px 0 0;
     margin-top: 10px;
     width: 50%;
+    display: flex; /* Add this line */
+    flex-direction: column; /* Add this line */
+    align-items: flex-start; /* Add this line */
 }
 
 .form__field {
@@ -88,19 +93,28 @@ body {
     color: transparent;
 }
 
-.form__field:placeholder-shown + .form__label {
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #fff; /* Change the border color to white */
+    outline: 0;
     font-size: 1.3rem;
-    cursor: text;
-    top: 20px;
+    color: #fff;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
 }
 
 .form__label {
     position: absolute;
     top: 0;
-    display: block;
+    display: flex;
     transition: 0.2s;
     font-size: 1rem;
-    color: #9b9b9b;
+    color: #fff; /* Change the label color to white */
+    width: 100%; /* Set the width to 100% of the form group */
+    justify-content: space-between;
 }
 
 .form__field:focus {
@@ -117,7 +131,9 @@ body {
     display: block;
     transition: 0.2s;
     font-size: 1rem;
-    color: #11998e;
+    color: transparent; /* Make the text transparent */
+    background-image: linear-gradient(to right, #11998e, #38ef7d); /* Add the gradient background */
+    -webkit-background-clip: text; /* Clip the background to the text */
     font-weight:700;    
 }
 
@@ -137,4 +153,18 @@ body {
 
 .section:last-child {
     margin-right: 0;
+}
+
+select, input[type="submit"] {
+    font-size: 1.3rem; /* Set the font size to the same as the input fields */
+}
+
+.field-checkbox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.field-checkbox .form__label {
+    margin-right: 10px;
 }
