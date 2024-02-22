@@ -26,3 +26,17 @@ document.querySelectorAll('.form__field').forEach(function(input) {
         }
     });
 });
+
+document.getElementById('student-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get the filled fields
+    var form_data = new FormData(document.getElementById('student-form'));
+    var filled_fields = Array.from(form_data.entries()).filter(entry => entry[1]);
+
+    // Create the print message
+    var print_message = filled_fields.map(entry => entry[0] + ": " + entry[1]).join(', ');
+
+    // Update the content of the print-message div
+    document.getElementById('prediction-result').textContent = print_message;
+});
