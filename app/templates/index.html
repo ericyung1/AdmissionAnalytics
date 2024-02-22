@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+<body>
+    <div id="header">
+        <h1>Academic Excellence Index</h1>
+        <div id="navbar">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#essay">Essay</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <form id="student-form">
+            <div class="row">
+                <div class="section">
+                    <div class="form__group">
+                        <input type="text" id="gpa" name="gpa" class="form__field">
+                        <label for="gpa" class="form__label">GPA:</label>
+                    </div>
+                </div>                           
+                <div class="section">
+                    <div class="form__group">
+                        <input type="text" id="sat" name="sat" class="form__field">
+                        <label for="sat" class="form__label">SAT Score:</label>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="form__group">
+                        <input type="text" id="act" name="act" class="form__field">
+                        <label for="act" class="form__label">ACT Score:</label>
+                    </div>
+                </div>
+            </div>      
+
+            <!-- For the SAT II Scores and AP Exam Scores row -->
+            <div class="row">
+                <div class="section">
+                    <div class="form__group">
+                        <div id="sat2">
+                            <div>
+                                <label for="sat2-checkbox" class="form__label">SAT II Scores</label>
+                                <input type="checkbox" id="sat2-checkbox" onclick="toggleInput('sat2')">
+                            </div>
+                            <div id="sat2-input" style="display: none;">
+                                <input type="text" name="sat2" class="form__field"><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="form__group">
+                        <div id="ap">
+                            <div>
+                                <label for="ap-checkbox" class="form__label">AP Exam Scores</label>
+                                <input type="checkbox" id="ap-checkbox" onclick="toggleInput('ap')">
+                            </div>
+                            <div id="ap-input" style="display: none;">
+                                <input type="text" name="ap" class="form__field"><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section"></div>
+            </div>
+
+            <!-- For the University dropdown row -->
+            <div class="row">
+                <div class="section">
+                    <div class="form__group">
+                        <label for="university" class="form__label">Select University:</label><br>
+                        <select id="university" name="university" class="form__field">
+                            <option value="university1">University 1</option>
+                            <option value="university2">University 2</option>
+                            <option value="university3">University 3</option>
+                        </select><br>
+                    </div>
+                </div>
+                <div class="section"></div>
+                <div class="section"></div>
+            </div>
+
+            <!-- For the Predict button row -->
+            <div class="row">
+                <div class="section">
+                    <div class="form__group">
+                        <input type="submit" value="Predict" class="form__field">
+                    </div>
+                </div>
+                <div class="section"></div>
+                <div class="section"></div>
+            </div>
+        </form>
+    </div>
+    <div id="footer">
+        <div id="prediction-result"></div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
