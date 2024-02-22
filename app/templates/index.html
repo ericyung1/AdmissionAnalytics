@@ -7,12 +7,12 @@
     <div id="header">
         <h1>Academic Excellence Index</h1>
         <div id="navbar">
-            <ul>
+            <ul class="fill">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#essay">Essay</a></li>
             </ul>
         </div>
-    </div>
+    </div>    
     <div id="content">
         <form id="student-form">
             <div class="row">
@@ -65,9 +65,9 @@
 
             <!-- For the University dropdown row -->
             <div class="row">
-                <div class="section">
+                <div class="section full-width">
                     <div class="form__group">
-                        <label for="university" class="form__label">University:</label><br>
+                        <label for="university" id="university-label" class="form__label">University:</label>
                         <select id="university" name="university" class="form__field">
                             <option value="university1">WashU</option>
                             <option value="university2">University 2</option>
@@ -75,15 +75,13 @@
                         </select><br>
                     </div>
                 </div>
-                <div class="section"></div>
-                <div class="section"></div>
             </div>
 
             <!-- For the Predict button row -->
             <div class="row">
                 <div class="section">
                     <div class="form__group">
-                        <input type="submit" value="Predict" class="form__field">
+                        <input type="submit" value="Predict" class="form__field predict-button">
                     </div>
                 </div>
                 <div class="section"></div>

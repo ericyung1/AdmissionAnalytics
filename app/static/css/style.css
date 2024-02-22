@@ -9,29 +9,35 @@ body {
     background-color: #222222;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 #header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px; /* Adjust this value to make the header bigger or smaller */
+    height: 70px;
     padding: 10px 0;
     background-color: #11998e;
+    background: linear-gradient(to right, #11998e, #38ef7d);
     color: #fff;
     text-align: center;
-    display: flex; /* Add this to vertically center the text */
-    align-items: center; /* Add this to vertically center the text */
-    justify-content: space-between; /* Add this to put space between the h1 and navbar */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 #header h1 {
-    font-size: 2rem; /* Increase the font size */
+    font-size: 2rem;
     margin-left: 20px;
-    text-align: left; /* Align the text to the left */
+    text-align: left;
 }
 
 #navbar {
-    margin-right: 20px; /* Adjust this value to increase or decrease the right margin */
+    margin-right: 20px;
 }
 
 #navbar ul {
@@ -39,24 +45,45 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    line-height: 70px; /* Aligns the links vertically */
+    line-height: 70px;
+    text-align: center;
 }
 
 #navbar ul li {
-    float: left;
+    display: inline-block;
 }
 
-#navbar ul li a {
-    display: block;
-    color: #fff;
+#navbar ul.fill li a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem; /* Adjust this value as needed */
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 2s;
+    margin-right: 20px; /* Add space to the right of each item */
     text-align: center;
-    padding: 0 16px;
-    text-decoration: none;
-    font-size: 0.8rem; /* Decrease the font size */
 }
 
-#navbar ul li a:hover {
-    background-color: #38ef7d; /* Changes the background color when you hover over a link */
+#navbar ul.fill li a:after {
+    display: block;
+    position: absolute;
+    content: '';
+    height: 2px;
+    background: #fff;
+    width: 0;
+    bottom: 0;
+    left: 50%;
+    transition: all 0.5s;
+}
+
+#navbar ul.fill li a:hover {
+    color: #fff;
+}
+
+#navbar ul.fill li a:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 #footer {
@@ -71,9 +98,9 @@ body {
     padding: 15px 0 0;
     margin-top: 10px;
     width: 50%;
-    display: flex; /* Add this line */
-    flex-direction: column; /* Add this line */
-    align-items: flex-start; /* Add this line */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .form__field {
@@ -97,7 +124,7 @@ body {
     font-family: inherit;
     width: 100%;
     border: 0;
-    border-bottom: 2px solid #fff; /* Change the border color to white */
+    border-bottom: 2px solid #fff;
     outline: 0;
     font-size: 1.3rem;
     color: #fff;
@@ -112,8 +139,8 @@ body {
     display: flex;
     transition: 0.2s;
     font-size: 1rem;
-    color: #fff; /* Change the label color to white */
-    width: 100%; /* Set the width to 100% of the form group */
+    color: #fff;
+    width: 100%;
     justify-content: space-between;
 }
 
@@ -131,9 +158,9 @@ body {
     display: block;
     transition: 0.2s;
     font-size: 1rem;
-    color: transparent; /* Make the text transparent */
-    background-image: linear-gradient(to right, #11998e, #38ef7d); /* Add the gradient background */
-    -webkit-background-clip: text; /* Clip the background to the text */
+    color: transparent;
+    background-image: linear-gradient(to right, #11998e, #38ef7d);
+    -webkit-background-clip: text;
     font-weight:700;    
 }
 
@@ -156,7 +183,7 @@ body {
 }
 
 select, input[type="submit"] {
-    font-size: 1.3rem; /* Set the font size to the same as the input fields */
+    font-size: 1.3rem;
 }
 
 .field-checkbox {
@@ -167,4 +194,32 @@ select, input[type="submit"] {
 
 .field-checkbox .form__label {
     margin-right: 10px;
+}
+
+.predict-button {
+    border: 2px solid #fff;
+}
+
+.full-width {
+    flex: 3;
+}
+
+#university-label {
+    top: 0; /* Adjust this value as needed */
+}
+
+@-webkit-keyframes fill {
+    0% {
+      width: 0%;
+      height: 1px;
+    }
+    50% {
+      width: 100%;
+      height: 1px;
+    }
+    100% {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+    }
 }
