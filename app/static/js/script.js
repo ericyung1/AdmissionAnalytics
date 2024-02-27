@@ -32,11 +32,22 @@ document.getElementById('student-form').addEventListener('submit', function(even
 
     // Get the filled fields
     var form_data = new FormData(document.getElementById('student-form'));
-    var filled_fields = Array.from(form_data.entries()).filter(entry => entry[1]);
+    var filled_fields = Array.from(form_data.entries()).reduce((obj, [key, value]) => {
+        if (value) obj[key] = value;  // Only include fields with values
+        return obj;
+    }, {});
 
-    // Create the print message
-    var print_message = filled_fields.map(entry => entry[0] + ": " + entry[1]).join(', ');
-
-    // Update the content of the print-message div
-    document.getElementById('prediction-result').textContent = print_message;
+    // Send a POST request to the /predict route
+    fetch('/predict', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(filled_fields)
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Update the content of the prediction-result div
+        document.getElementById('prediction-result').textContent = 'Prediction: ' + data.prediction;
+    });
 });
